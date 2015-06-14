@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+             <a class="navbar-brand" href="#">HabboDev</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{ urlFor('home') }}">{{ lang.home }}</a> </li>
+                <li><a href="{{ urlFor('user.all') }}">{{ lang.all_users }}</a> </li>
+                <li><a href="#">{{ lang.projects }}</a> </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if auth %}
+                <li class="dropdown">
+
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"> {{ lang.account }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ urlFor('settings') }}">{{ lang.settings }}</a> </li>
+                        <li><a href="{{ urlFor('user.profile', {username: auth.username}) }}">{{ lang.your_profile }}</a> </li>
+                        <li><a href="{{ urlFor('password.change') }}">{{ lang.change_password }}</a> </li>
+                        {% if auth.isAdmin %}
+                        <li><a href="{{ urlFor('admin.example') }}">{{ lang.admin_area }}</a> </li>
+                        {% endif %}
+                        <li class="divider"></li>
+                        <li><a href="{{ urlFor('logout') }}">{{ lang.logout }}</a> </li>
+                    </ul>
+                </li>
+                {% else %}
+                <li> <a href="{{ urlFor('register') }}">{{ lang.register }}</a> </li>
+                <li> <a href="{{ urlFor('login') }}">{{ lang.login }}</a> </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
