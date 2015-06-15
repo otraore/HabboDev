@@ -44,7 +44,7 @@ return [
     ],
 
     'lang' => [
-        'defualt' => 'en',
+        'default' => 'en',
         'session' => 'habbodev-lang'
     ]
 ];

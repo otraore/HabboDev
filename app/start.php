@@ -86,6 +86,10 @@ $app->container->set('lang', function() use ($app){
     }
 });
 
+$app->container->set('messages', function() use ($app){
+
+});
+
 $view = $app->view();
 
 $view->parserOptions = [
