@@ -41,5 +41,10 @@ return [
 
     'csrf' => [
         'key' => 'csrf_token'
+    ],
+
+    'lang' => [
+        'defualt' => 'en',
+        'session' => 'habbodev-lang'
     ]
 ];

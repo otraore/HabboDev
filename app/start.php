@@ -76,6 +76,16 @@ $app->container->singleton('randomlib', function() {
     $factory = new RandomLib;
     return $factory->getMediumStrengthGenerator();
 });
+
+$app->container->set('lang', function() use ($app){
+    if(empty($app->getCookie($app->config->get('lang.session')))){
+        $app->setCookie($app->config->get('lang.session'), $app->config->get('lang.default'), time() + (10 * 365 * 24 * 60 * 60));
+        return $app->config->get('lang.default');
+    } else{
+       return $app->getCookie($app->config->get('lang.session'));
+    }
+});
+
 $view = $app->view();
 
 $view->parserOptions = [

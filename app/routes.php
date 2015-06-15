@@ -17,6 +17,9 @@ require INC_ROOT . '/app/routes/admin/example.php';
 
 require INC_ROOT . '/app/routes/errors/404.php';
 
+require INC_ROOT . '/app/routes/lang/en.php';
+require INC_ROOT . '/app/routes/lang/es.php';
+
 
 
 

@@ -7,7 +7,7 @@
     <form action="{{ urlFor('login.post') }}" method="post" autocomplete="off">
         <h2>{{ lang.login }}</h2>
              <div class="form-group {%  if errors.has('identifier')  %} has has-error{%  endif  %}">
-                 <input type="text" class="form-control" placeholder="{{ lang.email }}/{{ lang.username }}" name="identifier" {% if request.post('identifier') %} value="{{ request.post('identifier') }}"{% endif %}id="identifier">
+                 <input type="text" class="form-control" placeholder="{{ lang.email }}/{{ lang.username }}" name="identifier" {% if request.post('identifier') %} value="{{ request.post('identifier') }}" {% endif %}id="identifier">
                  {% if errors.has('identifier') %}{{ errors.first('identifier') }} {% endif %}
              </div>
 

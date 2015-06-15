@@ -12,7 +12,7 @@ class LangMiddleware extends Middleware
     {
         $this->app->hook('slim.before', [$this, 'run']);
 
-        $this->lang = require( INC_ROOT . '/app/HabboDev/MiddleWare/lang/es.php');
+        $this->lang = require( INC_ROOT . "/app/HabboDev/MiddleWare/lang/{$this->app->lang}.php");
 
         $this->next->call();
 
