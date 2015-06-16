@@ -13,7 +13,7 @@
 
             <div class="form-group {%  if errors.has('password')  %} has has-error{%  endif  %}">
                 <input type="password" class="form-control" placeholder="{{ lang.password }}" name="password" id="password">
-                     {% if errors.has('password') %}{{ errors.first('password') }} {% endif %}
+                     {% if errorsa.has('password') %}{{ errors.first('password') }} {% endif %}
             </div>
 
             <div class="form-group">
