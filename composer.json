@@ -12,6 +12,10 @@
         "hassankhan/config": "0.8.*",
         "illuminate/database": "~5.0",
         "alexgarrett/violin": "2.*",
-        "ircmaxell/random-lib": "~1.1"
+      "ircmaxell/random-lib": "~1.1",
+      "google/recaptcha": "~1.1"
+    },
+  "require-dev": {
+    "fzaninotto/faker": "1.4.0"
     }
 }

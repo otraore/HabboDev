@@ -1,20 +1,18 @@
 <?php
 
+use HabboDev\Helpers\Hash;
+use HabboDev\Mail\Mailer;
+use HabboDev\MiddleWare\BeforeMiddleWare;
 use HabboDev\MiddleWare\CsrfMiddleware;
 use HabboDev\MiddleWare\LangMiddleware;
+use HabboDev\Project\Project;
+use HabboDev\User\User;
+use HabboDev\Validation\Validator;
+use Noodlehaus\Config;
+use RandomLib\Factory as RandomLib;
 use Slim\Slim;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
-
-use Noodlehaus\Config;
-use RandomLib\Factory as RandomLib;
-
-use HabboDev\User\User;
-use HabboDev\Mail\Mailer;
-use HabboDev\Helpers\Hash;
-use HabboDev\Validation\Validator;
-
-use HabboDev\MiddleWare\BeforeMiddleWare;
 
 
 session_cache_limiter(false);
@@ -25,6 +23,7 @@ ini_set('display_errors', 'On');
 define('INC_ROOT', dirname(__DIR__));
 
 require INC_ROOT . '/vendor/autoload.php';
+
 
 $app = new Slim([
     'mode' => file_get_contents(INC_ROOT . '/mode.php'),
@@ -47,6 +46,10 @@ $app->auth = false;
 
 $app->container->set('user', function(){
     return new User();
+});
+
+$app->container->set('project', function () {
+    return new Project();
 });
 
 $app->container->singleton('hash', function() use ($app){
@@ -77,7 +80,8 @@ $app->container->singleton('randomlib', function() {
     return $factory->getMediumStrengthGenerator();
 });
 
-$app->container->set('lang', function() use ($app){
+
+$app->container->singleton('lang', function () use ($app) {
     if(empty($app->getCookie($app->config->get('lang.session')))){
         $app->setCookie($app->config->get('lang.session'), $app->config->get('lang.default'), time() + (10 * 365 * 24 * 60 * 60));
         return $app->config->get('lang.default');

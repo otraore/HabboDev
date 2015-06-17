@@ -1,0 +1,74 @@
+body {
+  background-color: rgb(39, 116, 169);
+}
+
+.logo {
+  margin-top: 2.5%;
+  margin-bottom: 2%;
+}
+
+.form-control {
+  margin-bottom: 3%;
+  width: 300px;
+  height: 50px;
+  font-size: 16px;
+}
+
+.formbox {
+  background-color: white;
+  width: 380px;
+  height: auto;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding-bottom: auto;
+}
+
+.terms {
+  background-color: rgb(16, 92, 143);
+  width: 380px;
+  height: auto;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.btn-signup {
+  background-color: rgb(39, 116, 169);
+}
+
+btn-signup:active {
+  background-color: rgb(16, 92, 143);
+}
+
+btn-signup:focus {
+  background-color: rgb(16, 92, 143);
+}
+
+btn-signup:hover {
+  background-color: rgb(16, 92, 143);
+}
+
+.g-recaptcha {
+  width: auto;
+  padding-bottom: 3%;
+}
+
+#signup-header {
+  padding-top: 6%;
+  padding-bottom: auto;
+  font-size: 30px;
+  color: dimgray;
+}
+
+#p-terms {
+  color: white;
+  font-size: 15px;
+  padding-top: auto;
+}
+
+a:link {
+  color: white;
+}
+
+a:visited {
+  color: white;
+}

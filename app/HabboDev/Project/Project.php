@@ -9,7 +9,9 @@ class Project extends Eloquent
     protected $table = 'projects';
 
     protected $fillable = [
-
+        'user_id',
+        'project_name',
+        'type'
     ];
 
 }

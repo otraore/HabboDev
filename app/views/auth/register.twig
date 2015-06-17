@@ -1,34 +1,57 @@
-{% extends 'templates/default.twig' %}
-
-{% block title %}{{ lang.register }}{% endblock %}
-
+{% extends '/templates/single-form.twig' %}
 {% block content %}
-    <form class="form" action="{{ urlFor('register.post') }}" method="POST" autocomplete="off">
-        <h2>{{ lang.register }}</h2>
-
-        <div class="form-group {%  if errors.has('email')  %} has has-error{%  endif  %}">
-            <input  type="email" class="form-control" name="email" placeholder="{{ lang.email }}" id="email" {% if request.post('email') %}value="{{ request.post('email') }}" {% endif %}>
-            {% if errors.has('email') %}{{ errors.first('email')}} {% endif %}
+    <center>
+        <div class="container row logo">
+            <a href="#">
+                <img src="img/logo.png" alt="HabboDev">
+            </a>
         </div>
+        <div class="container">
+            <div class="container form-group table">
+                <form class="formbox" action="{{ urlFor('register') }}" method="post">
+                    <p id="signup-header">{{ lang.register }}</p>
+                    {% if errors %}
+                        <div class="alert alert-danger fade in" role="alert">
+                            <a href="#" class="close" data-dismiss="alert">×</a>
+                            {{ errors.first }}
+                        </div>
+                    {% endif %}
+                    <div class="form-group {% if errors.has('email') %} has has-error{% endif %}">
+                        <input type="email" class="form-control check-exists" name="email"
+                               placeholder="{{ lang.email }}" id="email"
+                               {% if request.post('email') %}value="{{ request.post('email') }}" {% endif %}>
+                    </div>
 
-        <div class="form-group {%  if errors.has('username')  %} has has-error{%  endif  %}">
-            <input type="text" class="form-control" name="username" placeholder="{{ lang.username }}" id="username" {% if request.post('username') %}value="{{ request.post('username') }}" {% endif %} >
-            {% if errors.has('username') %}{{ errors.first('username')}} {% endif %}
+                    <div class="form-group {% if errors.has('username') %} has has-error{% endif %}">
+                        <input type="text" class="form-control check-exists" name="username"
+                               placeholder="{{ lang.username }}" id="username"
+                               {% if request.post('username') %}value="{{ request.post('username') }}" {% endif %} >
+                        <span class="check-exists-feedback" data-type="username"></span>
+                    </div>
+
+                    <div class="form-group {% if errors.has('password') %} has has-error{% endif %}">
+                        <input type="password" class="form-control" name="password" placeholder="{{ lang.password }}"
+                               id="password">
+                    </div>
+
+                    <div class="form-group {% if errors.has('password_confirm') %} has has-error{% endif %}">
+                        <input type="password" class="form-control" name="password_confirm"
+                               placeholder="{{ lang.password_confirm }}" id="password_confirm">
+                    </div>
+
+                    <div class="g-recaptcha" data-sitekey="6Lf3fAgTAAAAACuhrEgFfhqHa4aw0USMlEP_BZHt"></div>
+
+                    <button type="submit" class="btn btn-primary form-control btn-signup">{{ lang.register }}</button>
+
+                    <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}">
+                </form>
+                <div class="container terms">
+                    <p id="p-terms">Already have an account?<a href="{{ urlFor('login') }}"><strong> Log In</strong></a>
+                    </p>
+
+                    <p id="p-terms"><a href="{{ urlFor('home') }}">Go back to HomePage</a></p>
+                </div>
+            </div>
         </div>
-
-        <div class="form-group {%  if errors.has('password')  %} has has-error{%  endif  %}">
-            <input type="password" class="form-control" name="password" placeholder="{{ lang.password }}" id="password">
-            {% if errors.has('password') %}{{ errors.first('password')}} {% endif %}
-        </div>
-
-        <div class="form-group {%  if errors.has('password_confirm')  %} has has-error{%  endif  %}">
-            <input type="password" class="form-control" name="password_confirm" placeholder="{{ lang.password_confirm }}" id="password_confirm">
-            {% if errors.has('password_confirm') %}{{ errors.first('password_confirm')}} {% endif %}
-        </div>
-
-        <button type="submit" class="btn btn-lg btn-primary btn-block">{{ lang.register }}</button>
-
-        <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}">
-
-    </form>
+    </center>
 {% endblock %}
