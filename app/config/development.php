@@ -42,7 +42,9 @@ return [
     'csrf' => [
         'key' => 'csrf_token'
     ],
-
+    'recaptch' => [
+        'secret' => 'here ye'
+    ],
     'lang' => [
         'default' => 'en',
         'session' => 'habbodev-lang'
