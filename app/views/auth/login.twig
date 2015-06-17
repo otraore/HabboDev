@@ -1,35 +1,51 @@
-{% extends 'templates/default.twig' %}
-
-{% block title %}{{ lang.login }}{% endblock %}
-
+{% extends '/templates/single-form.twig' %}
 {% block content %}
     <div class="container">
-    <form action="{{ urlFor('login.post') }}" method="post" autocomplete="off">
-        <h2>{{ lang.login }}</h2>
-             <div class="form-group {%  if errors.has('identifier')  %} has has-error{%  endif  %}">
-                 <input type="text" class="form-control" placeholder="{{ lang.email }}/{{ lang.username }}" name="identifier" {% if request.post('identifier') %} value="{{ request.post('identifier') }}" {% endif %}id="identifier">
-                 {% if errors.has('identifier') %}{{ errors.first('identifier') }} {% endif %}
-             </div>
+        <div class="container form-group table">
+            <form class="formbox" action="{{ urlFor('login') }}" method="post">
+                <p id="form-header">{{ lang.login }}</p>
+                {% if errors %}
+                    <div class="alert alert-danger fade in" role="alert">
+                        <a href="#" class="close" data-dismiss="alert">×</a>
+                        {{ errors.first }}
+                    </div>
+                {% endif %}
 
-            <div class="form-group {%  if errors.has('password')  %} has has-error{%  endif  %}">
-                <input type="password" class="form-control" placeholder="{{ lang.password }}" name="password" id="password">
-                     {% if errorsa.has('password') %}{{ errors.first('password') }} {% endif %}
-            </div>
+                <div class="form-group {% if errors.has('identifier') %} has has-error{% endif %}">
+                    <input type="text" class="form-control" placeholder="{{ lang.email }}/{{ lang.username }}"
+                           name="identifier" {% if request.post('identifier') %}
+                           value="{{ request.post('identifier') }}" {% endif %}id="identifier">
+                </div>
 
-            <div class="form-group">
-                <div class="">
-                     <label>
-                         <input type="checkbox" class="form-control" name="remember"
-                                id="remember">{{ lang.remember_me }}
-                     </label>
+                <div class="form-group {% if errors.has('password') %} has has-error{% endif %}">
+                    <input type="password" class="form-control" placeholder="{{ lang.password }}" name="password"
+                           id="password">
+                </div>
 
-                     <a href="">{{ lang.forgot_password }}</a>
-                 </div>
-             </div>
-             <div class="form-group">
-                <button type="submit"  class="btn btn-lg btn-primary btn-block" value="Login">{{ lang.sign_in }}</button>
-            </div>
-         <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}">
-     </form>
-</div>
+                <div class="checkbox">
+                    <label id="remember_me">
+                        <input type="checkbox" name="remember_me">Remember Me
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="{{ site_key }}"></div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit"
+                            class="btn btn-primary form-control btn-form text-center">{{ lang.login }}</button>
+
+                </div>
+
+                <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}">
+
+            </form>
+        </div>
+        <div class="container terms">
+            <p id="p-terms"><a href="{{ urlFor('register') }}"> Need an account?</a>
+            </p>
+
+            <p id="p-back"><a href="{{ urlFor('home') }}">Go back to Home</a></p>
+        </div>
+    </div>
 {% endblock %}

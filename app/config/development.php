@@ -42,8 +42,9 @@ return [
     'csrf' => [
         'key' => 'csrf_token'
     ],
-    'recaptch' => [
-        'secret' => 'here ye'
+    'recaptcha' => [
+        'site_key' => '6Lf3fAgTAAAAACuhrEgFfhqHa4aw0USMlEP_BZHt',
+        'secret' => '6Lf3fAgTAAAAAH7ZOgISMAIeRthpa_Jz25gOrQM7'
     ],
     'lang' => [
         'default' => 'en',

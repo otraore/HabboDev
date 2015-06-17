@@ -10,6 +10,7 @@ use HabboDev\User\User;
 use HabboDev\Validation\Validator;
 use Noodlehaus\Config;
 use RandomLib\Factory as RandomLib;
+use ReCaptcha\ReCaptcha;
 use Slim\Slim;
 use Slim\Views\Twig;
 use Slim\Views\TwigExtension;
@@ -57,7 +58,7 @@ $app->container->singleton('hash', function() use ($app){
 });
 
 $app->container->singleton('validation', function() use ($app){
-    return new Validator($app->user, $app->hash, $app->auth);
+    return new Validator($app->user, $app->hash, $app->auth, $app);
 });
 
 $app->container->singleton('mail', function() use ($app){
@@ -80,6 +81,9 @@ $app->container->singleton('randomlib', function() {
     return $factory->getMediumStrengthGenerator();
 });
 
+$app->container->set('recaptcha', function () use ($app) {
+    return new ReCaptcha($app->config->get('recaptcha.secret'));
+});
 
 $app->container->singleton('lang', function () use ($app) {
     if(empty($app->getCookie($app->config->get('lang.session')))){

@@ -2,9 +2,10 @@
 
 namespace HabboDev\Validation;
 
-use Violin\Violin;
-use HabboDev\User\User;
 use HabboDev\Helpers\Hash;
+use HabboDev\User\User;
+use Slim\Slim;
+use Violin\Violin;
 
 class Validator extends Violin
 {
@@ -14,11 +15,14 @@ class Validator extends Violin
 
     protected $auth;
 
-    public function __construct(User $user, Hash $hash, $auth = null)
+    protected $app;
+
+    public function __construct(User $user, Hash $hash, $auth = null, Slim $app)
     {
         $this->user = $user;
         $this->hash = $hash;
         $this->auth = $auth;
+        $this->app = $app;
 
         $this->addFieldMessages([
            'email' => [
@@ -43,8 +47,10 @@ class Validator extends Violin
 
         $this->addRuleMessages([
            'matchesCurrentPassword' => 'That does not match your current password',
-            'differentPassword' => "Your new password can't be the same as your old password"
+            'differentPassword' => "Your new password can't be the same as your old password",
+            'verifyCaptcha' => 'Incorrect or empty Captcha'
         ]);
+
     }
 
     public function validate_uniqueEmail($value, $input, $args)
@@ -69,5 +75,11 @@ class Validator extends Violin
         if($this->hash->passwordCheck($value, $this->auth->password)){
             return false;
         } return true;
+    }
+
+    public function validate_verifyCaptcha($value, $input, $args)
+    {
+        $resp = $this->app->recaptcha->verify($value);
+        return (bool)$resp->isSuccess();
     }
 }

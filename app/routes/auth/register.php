@@ -14,6 +14,7 @@ $app->post('/register', $guest(), function() use ($app){
     $username = $request->post('username');
     $password = $request->post('password');
     $passwordConfirm = $request->post('password_confirm');
+    $recaptcha = $request->post('g-recaptcha-response');
 
     $v = $app->validation;
 
@@ -21,13 +22,12 @@ $app->post('/register', $guest(), function() use ($app){
         'email' => [$email, 'required|email|uniqueEmail'],
         'username' => [$username, 'required|alnumDash|max(20)|uniqueUsername'],
         'password' => [$password, 'required|min(6)'],
-        'password_confirm' => [$passwordConfirm, 'required|matches(password']
+        'password_confirm' => [$passwordConfirm, 'required|matches(password'],
+        'recaptcha' => [$recaptcha, 'verifyCaptcha']
     ]);
 
     if($v->passes()){
         $identifier = $app->randomlib->generateString(128);
-
-
 
        $user = $app->user->create([
             'email' => $email,

@@ -13,11 +13,14 @@ $app->post('/login', $guest(), function() use ($app){
     $identifier = $request->post('identifier');
     $password = $request->post('password');
     $remember = $request->post('remember');
+    $recaptcha = $request->post('g-recaptcha-response');
+
     $v = $app->validation;
 
     $v->validate([
        'identifier' => [$identifier, 'required'],
-        'password' => [$password, 'required']
+        'password' => [$password, 'required'],
+        'recaptcha' => [$recaptcha, 'verifyCaptcha']
     ]);
 
     if($v->passes())

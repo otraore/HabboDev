@@ -23,7 +23,8 @@ class BeforeMiddleWare extends MiddleWare
         $this->checkRememberMe();
         $this->app->view->appendData([
             'auth' => $this->app->auth,
-            'baseUrl' => $this->app->config->get('app.url')
+            'baseUrl' => $this->app->config->get('app.url'),
+            'site_key' => $this->app->config->get('recaptcha.site_key')
         ]);
 
     }

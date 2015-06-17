@@ -1,17 +1,31 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 body {
     background-color: #2774a9;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.alert {
+    text-align: center;
 }
 
 .logo {
+    text-align: center;
     margin-top: 2.5%;
     margin-bottom: 2%;
 }
 
 .form-control {
-    margin-bottom: 3%;
     width: 300px;
     height: 50px;
     font-size: 16px;
+    margin: 0 auto;
 }
 
 .formbox {
@@ -21,6 +35,7 @@ body {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     padding-bottom: auto;
+    margin: 0 auto;
 }
 
 .terms {
@@ -31,38 +46,63 @@ body {
     border-bottom-right-radius: 3px;
 }
 
-.btn-signup {
+.btn-form {
     background-color: #2774a9;
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5%;
 }
 
-btn-signup:active {
+btn-form:active {
     background-color: #105c8f;
 }
 
-btn-signup:focus {
+btn-form:focus {
     background-color: #105c8f;
 }
 
-btn-signup:hover {
+btn-form:hover {
     background-color: #105c8f;
 }
 
 .g-recaptcha {
-    width: auto;
-    padding-bottom: 3%;
+    padding-bottom: 20%;
+    text-align: center;
+    width: 300px;
+    height: 50px;
+    font-size: 16px;
+    margin: 0 auto;
 }
 
-#signup-header {
+#form-header {
     padding-top: 6%;
     padding-bottom: auto;
     font-size: 30px;
     color: dimgray;
+    text-align: center;
 }
 
 #p-terms {
     color: white;
     font-size: 15px;
-    padding-top: auto;
+    padding-top: 2.5%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#p-back {
+    color: white;
+    font-size: 15px;
+    padding-bottom: 2%;
+    marding: 0 auto;
+    text-align: center;
+}
+
+#remember_me {
+    alignment: left;
+    text-align: left;
 }
 
 a:link {
@@ -71,6 +111,11 @@ a:link {
 
 a:visited {
     color: white;
+}
+
+label {
+    cursor: pointer;
+    color: #666;
 }
 
 /*# sourceMappingURL=app.css.map */
