@@ -68,3 +68,27 @@ $('form.ajax').on('submit', function () {
     });
     return false;
 });
+
+
+$(document).ready(function () {
+    var projects = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('search-project'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        remote: {
+            url: '/api/projects?query=%QUERY',
+            wildcard: '%QUERY'
+        }
+    });
+
+    projects.initialize();
+
+    $('#search-project').typeahead({
+        hint: true,
+        highlight: true,
+        minLength: 2
+    }, {
+        name: 'search-project',
+        displayKey: 'project_name',
+        source: projects.ttAdapter()
+    })
+});

@@ -42,6 +42,10 @@ class Validator extends Violin
             'password_confirm' => [
                 'required' => 'Cannot be blank',
                 'matches' => "Passwords must match"
+            ],
+
+            'identifier' => [
+                'required' => 'Email/Username cannot be empty'
             ]
         ]);
 

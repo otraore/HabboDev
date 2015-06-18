@@ -1,0 +1,12 @@
+.tt-menu {
+    width: calc(100% - 2px);
+    border: 1px solid #bbb;
+    border-top: 0;
+    padding: 0;
+}
+
+.tt-suggestion {
+    padding: 5% 5% 10% 5%;
+    margin: -5%;
+    cursor: pointer;
+}

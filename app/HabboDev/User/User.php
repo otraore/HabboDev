@@ -12,6 +12,7 @@ class User extends Eloquent
        'email',
         'username',
         'password',
+        'habbo_username',
         'active',
         'active_hash',
         'remember_identifier',

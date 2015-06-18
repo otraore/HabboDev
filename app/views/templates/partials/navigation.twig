@@ -14,13 +14,12 @@
                 <li class="active"><a href="{{ urlFor('home') }}">{{ lang.home }}</a> </li>
                 <li><a href="{{ urlFor('user.all') }}">{{ lang.all_users }}</a> </li>
                 <li>
-                    <form class="navbar-form navbar-right" role="search">
+                    <form action="" method="get" class="navbar-form navbar-right" role="search" autocomplete="off">
                         <div class="form-group">
-                            <input type="search" class="form-control" name="project-search"
-                                   placeholder="Search for Project">
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control"><i class="fa fa-search"></i></button>
+                            <input type="hidden" name="type" id="type" value="projects">
+                            <input type="text" class="form-control" id="search-project" name="search-project"
+                                   placeholder="Search"/>
+                            <span class="fa fa-search"></span>
                         </div>
                     </form>
                 </li>

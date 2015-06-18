@@ -7,6 +7,13 @@ body {
     padding-bottom: 10%;
 }
 
+.checkbox {
+    text-align: left;
+    padding-left: 12%;
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
 .container {
     margin: 0 auto;
 }
@@ -55,15 +62,19 @@ body {
     margin-bottom: 5%;
 }
 
-btn-form:active {
+.search-button {
+    outline: none;
+}
+
+.btn-form:active {
     background-color: #105c8f;
 }
 
-btn-form:focus {
+.btn-form:focus {
     background-color: #105c8f;
 }
 
-btn-form:hover {
+.btn-form:hover {
     background-color: #105c8f;
 }
 
@@ -100,9 +111,10 @@ btn-form:hover {
     text-align: center;
 }
 
-#remember_me {
+#remember-me {
     alignment: left;
     text-align: left;
+    margin-left: -25px;
 }
 
 a:link {

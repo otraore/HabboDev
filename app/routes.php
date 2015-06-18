@@ -21,6 +21,8 @@ require INC_ROOT . '/app/routes/errors/404.php';
 require INC_ROOT . '/app/routes/lang/en.php';
 require INC_ROOT . '/app/routes/lang/es.php';
 
+require INC_ROOT . '/app/routes/api/projects.php';
+
 
 
 
