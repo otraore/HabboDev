@@ -18,10 +18,11 @@ It is actively developed by members of JustDevInc.
 - Login/Register Styling: Finished
 - Recaptcha Integration: Finished
 - Gravatar Support: Finished
+- Typehead.js Integration: In-progress
 - User Profile System: In-Progress
 - Multi-language support: In-Progress
 - Project Hosting support: Planned
 - Community Forum: Planned
 - GitHub Integration: Planned
 
-Crafted with <3 by <a href="http://www.github.com/otraore">Ousmane</a> (Uzi)</a> & <a href="http://www.github.com/adversities">Jeremi</a>
+Crafted with :heart: by <a href="http://www.github.com/otraore">Ousmane</a> (Uzi)</a> & <a href="http://www.github.com/adversities">Jeremi</a>

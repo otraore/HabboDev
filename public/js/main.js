@@ -74,6 +74,10 @@ $(document).ready(function () {
     var projects = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('search-project'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: {
+            url: '/api/projects?query=%QUERY',
+            wildcard: '%QUERY'
+        },
         remote: {
             url: '/api/projects?query=%QUERY',
             wildcard: '%QUERY'
