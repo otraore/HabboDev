@@ -22,7 +22,7 @@ $app->post('/register', $guest(), function() use ($app){
         'email' => [$email, 'required|email|uniqueEmail'],
         'username' => [$username, 'required|alnumDash|max(20)|uniqueUsername'],
         'password' => [$password, 'required|min(6)'],
-        'password_confirm' => [$passwordConfirm, 'required|matches(password'],
+        'password_confirm' => [$passwordConfirm, 'required|matches(password)'],
         'recaptcha' => [$recaptcha, 'verifyCaptcha']
     ]);
 

@@ -1,21 +1,22 @@
 {
-  "autoload" : {
-    "psr-4" : {
-      "HabboDev\\" : "app/HabboDev"
+  "autoload": {
+    "psr-4": {
+      "HabboDev\\": "app/HabboDev"
     }
   },
-    "require": {
-        "slim/slim": "~2.0",
-        "slim/views": "0.1.*",
-        "twig/twig": "~1.0",
-        "phpmailer/phpmailer": "~5.2",
-        "hassankhan/config": "0.8.*",
-        "illuminate/database": "~5.0",
-        "alexgarrett/violin": "2.*",
-      "ircmaxell/random-lib": "~1.1",
-      "google/recaptcha": "~1.1"
-    },
+  "require": {
+    "slim/slim": "~2.0",
+    "slim/views": "0.1.*",
+    "twig/twig": "~1.0",
+    "phpmailer/phpmailer": "~5.2",
+    "hassankhan/config": "0.8.*",
+    "illuminate/database": "~5.0",
+    "alexgarrett/violin": "2.*",
+    "ircmaxell/random-lib": "~1.1",
+    "google/recaptcha": "~1.1",
+    "twig/extensions": "^1.2"
+  },
   "require-dev": {
     "fzaninotto/faker": "1.4.0"
-    }
+  }
 }

@@ -70,7 +70,7 @@ $app->container->singleton('mail', function() use ($app){
     $mailer->Port = $app->config->get('mail.port');
     $mailer->Username = $app->config->get('mail.username');
     $mailer->Password = $app->config->get('mail.password');
-    $mailer->isHTML($app->config->get('mail.host'));
+    $mailer->isHTML($app->config->get('mail.html'));
     $mailer->setFrom('no-reply@habbodev.com', 'no-reply');
     $mailer->XMailer = 'HabboDev Mailer';
     return new Mailer($app->view, $mailer);

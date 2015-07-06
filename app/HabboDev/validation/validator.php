@@ -40,7 +40,7 @@ class Validator extends Violin
                 'min' => 'Password must be a minimum of {$0}'
             ],
             'password_confirm' => [
-                'required' => 'Cannot be blank',
+                'required' => 'Please repeat your password',
                 'matches' => "Passwords must match"
             ],
 

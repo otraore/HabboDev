@@ -22,7 +22,7 @@ return array(
     'admin_area' => 'Admin Area',
 
     //All Users
-    'admin', 'Admin',
+    'admin' => 'Admin',
     //Forms
 
     //Change Password
